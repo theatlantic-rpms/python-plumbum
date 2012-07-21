@@ -2,7 +2,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.9.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Shell combinators library
 
 License:        MIT
@@ -41,5 +41,8 @@ rm -rf %{pypi_name}.egg-info
 
 
 %changelog
+* Sat Jul 21 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.9.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
+
 * Mon May 14 2012 Bohuslav Kabrda <bkabrda@redhat.com> - 0.9.0-1
 - Initial package.
