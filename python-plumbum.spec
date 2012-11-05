@@ -1,13 +1,13 @@
 %global pypi_name plumbum
 
 Name:           python-%{pypi_name}
-Version:        0.9.0
-Release:        2%{?dist}
+Version:        1.0.1
+Release:        1%{?dist}
 Summary:        Shell combinators library
 
 License:        MIT
 URL:            https://github.com/tomerfiliba/plumbum
-Source0:        http://pypi.python.org/packages/source/p/plumbum/plumbum-0.9.0.tar.gz
+Source0:        http://pypi.python.org/packages/source/p/plumbum/plumbum-%{version}.tar.gz
 
 BuildArch:      noarch
 BuildRequires:  python-devel
@@ -41,6 +41,9 @@ rm -rf %{pypi_name}.egg-info
 
 
 %changelog
+* Mon Nov 05 2012 Bohuslav Kabrda <bkabrda@redhat.com> - 1.0.1-1
+- Update to 1.0.1.
+
 * Sat Jul 21 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.9.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
 
