@@ -1,0 +1,13 @@
+diff --git a/plumbum/paramiko_machine.py b/plumbum/paramiko_machine.py
+index acc3666..e04c795 100644
+--- a/plumbum/paramiko_machine.py
++++ b/plumbum/paramiko_machine.py
+@@ -71,7 +71,7 @@ class ParamikoPopen(object):
+                     line = infile.readline()
+                 except (ValueError, IOError):
+                     line = None
+-                print "!!", repr(line)
++                print("!! %s", (repr(line),))
+                 if not line:
+                     infile.close()
+                     infile = None
