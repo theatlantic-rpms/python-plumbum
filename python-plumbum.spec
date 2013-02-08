@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.1.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Shell combinators library
 
 License:        MIT
@@ -11,6 +11,7 @@ URL:            https://github.com/tomerfiliba/plumbum
 Source0:        http://pypi.python.org/packages/source/p/plumbum/plumbum-%{version}.tar.gz
 # https://github.com/tomerfiliba/plumbum/pull/55
 Patch0:         plumbum-1.1.0-fix-print-for-p3.patch
+Patch1:         plumbum-1.1.0-add-__path__-to-LocalModule.patch
 
 BuildArch:      noarch
 BuildRequires:  python-devel
@@ -49,6 +50,7 @@ pythonic and cross-platform.
 rm -rf %{pypi_name}.egg-info
 
 %patch0 -p1
+%patch1 -p1
 
 %if 0%{?with_python3}
 rm -rf %{py3dir}
@@ -88,6 +90,9 @@ popd
 
 
 %changelog
+* Fri Feb 08 2013 Bohuslav Kabrda <bkabrda@redhat.com> - 1.1.0-2
+- Patch the Python 3.3 module subclass error.
+
 * Fri Feb 08 2013 Bohuslav Kabrda <bkabrda@redhat.com> - 1.1.0-1
 - Update to 1.1.0.
 

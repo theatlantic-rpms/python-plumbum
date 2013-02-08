@@ -1,0 +1,18 @@
+commit dc18cc9cfe9c701d7b5df689e0b353dcf8912e10
+Author: Tomer Filiba <tomerfiliba@gmail.com>
+Date:   Fri Feb 8 15:24:16 2013 +0200
+
+    add __path__ to LocalModule, to make python 3.3 happy
+
+diff --git a/plumbum/__init__.py b/plumbum/__init__.py
+index 037aed5..d4ddec4 100644
+--- a/plumbum/__init__.py
++++ b/plumbum/__init__.py
+@@ -56,6 +56,7 @@ class LocalModule(ModuleType):
+     __all__ = ()                # to make help() happy
+     __package__ = __name__
+     __getattr__ = local.__getitem__
++    __path__ = []
+ 
+ cmd = LocalModule(__name__ + ".cmd", LocalModule.__doc__)
+ sys.modules[cmd.__name__] = cmd
