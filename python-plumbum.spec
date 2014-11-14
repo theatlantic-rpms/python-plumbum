@@ -2,16 +2,13 @@
 %global with_python3 1
 
 Name:           python-%{pypi_name}
-Version:        1.1.0
-Release:        5%{?dist}
+Version:        1.4.2
+Release:        1%{?dist}
 Summary:        Shell combinators library
 
 License:        MIT
 URL:            https://github.com/tomerfiliba/plumbum
 Source0:        http://pypi.python.org/packages/source/p/plumbum/plumbum-%{version}.tar.gz
-# https://github.com/tomerfiliba/plumbum/pull/55
-Patch0:         plumbum-1.1.0-fix-print-for-p3.patch
-Patch1:         plumbum-1.1.0-add-__path__-to-LocalModule.patch
 
 BuildArch:      noarch
 BuildRequires:  python-devel
@@ -49,9 +46,6 @@ pythonic and cross-platform.
 %setup -q -n %{pypi_name}-%{version}
 rm -rf %{pypi_name}.egg-info
 
-%patch0 -p1
-%patch1 -p1
-
 %if 0%{?with_python3}
 rm -rf %{py3dir}
 cp -a . %{py3dir}
@@ -75,7 +69,6 @@ popd
 
 %{__python} setup.py install -O1 --skip-build --root %{buildroot}
 
-
 %files
 %doc LICENSE README.rst
 %{python_sitelib}/%{pypi_name}
@@ -90,6 +83,9 @@ popd
 
 
 %changelog
+* Fri Nov 14 2014 Slavek Kabrda <bkabrda@redhat.com> - 1.4.2-1
+- Update to 1.4.2
+
 * Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.1.0-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
 
