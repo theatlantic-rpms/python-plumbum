@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.4.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Shell combinators library
 
 License:        MIT
@@ -83,6 +83,9 @@ popd
 
 
 %changelog
+* Thu Jun 18 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.4.2-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
+
 * Fri Nov 14 2014 Slavek Kabrda <bkabrda@redhat.com> - 1.4.2-1
 - Update to 1.4.2
 
