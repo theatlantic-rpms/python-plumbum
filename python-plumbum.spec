@@ -2,8 +2,8 @@
 %global with_python3 1
 
 Name:           python-%{pypi_name}
-Version:        1.4.2
-Release:        3%{?dist}
+Version:        1.6.0
+Release:        1%{?dist}
 Summary:        Shell combinators library
 
 License:        MIT
@@ -83,6 +83,9 @@ popd
 
 
 %changelog
+* Fri Nov 13 2015 Slavek Kabrda <bkabrda@redhat.com> - 1.6.0-1
+- Update to 1.6.0
+
 * Tue Nov 10 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.4.2-3
 - Rebuilt for https://fedoraproject.org/wiki/Changes/python3.5
 
