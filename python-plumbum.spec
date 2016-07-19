@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.6.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Shell combinators library
 
 License:        MIT
@@ -83,6 +83,9 @@ popd
 
 
 %changelog
+* Tue Jul 19 2016 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.6.0-3
+- https://fedoraproject.org/wiki/Changes/Automatic_Provides_for_Python_RPM_Packages
+
 * Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 1.6.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
