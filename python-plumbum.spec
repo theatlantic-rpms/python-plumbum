@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.6.0
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Shell combinators library
 
 License:        MIT
@@ -12,20 +12,28 @@ Source0:        http://pypi.python.org/packages/source/p/plumbum/plumbum-%{versi
 
 BuildArch:      noarch
 BuildRequires:  python-devel
-Requires:       python-six
 
 %if 0%{?with_python3}
 BuildRequires:  python3-devel
 %endif # if with_python3
 
-%description
-Ever wished the wrist-handiness of shell scripts be put into a real programming
-language? Say hello to Plumbum Shell Combinators. Plumbum (Latin for lead,
-which was used to create pipes back in the day) is a small yet feature-rich
-library for shell script-like programs in Python. The motto of the library is
-"Never write shell scripts again", and thus it attempts to mimic the shell
-syntax ("shell combinators") where it makes sense, while keeping it all
+%global _description\
+Ever wished the wrist-handiness of shell scripts be put into a real programming\
+language? Say hello to Plumbum Shell Combinators. Plumbum (Latin for lead,\
+which was used to create pipes back in the day) is a small yet feature-rich\
+library for shell script-like programs in Python. The motto of the library is\
+"Never write shell scripts again", and thus it attempts to mimic the shell\
+syntax ("shell combinators") where it makes sense, while keeping it all\
 pythonic and cross-platform.
+
+%description %_description
+
+%package -n python2-%{pypi_name}
+Summary: %summary
+Requires:       python-six
+%{?python_provide:%python_provide python2-%{pypi_name}}
+
+%description -n python2-%{pypi_name} %_description
 
 %if 0%{?with_python3}
 %package -n python3-%{pypi_name}
@@ -69,7 +77,7 @@ popd
 
 %{__python} setup.py install -O1 --skip-build --root %{buildroot}
 
-%files
+%files -n python2-%{pypi_name}
 %doc LICENSE README.rst
 %{python_sitelib}/%{pypi_name}
 %{python_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
@@ -83,6 +91,10 @@ popd
 
 
 %changelog
+* Sat Aug 19 2017 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 1.6.0-7
+- Python 2 binary package renamed to python2-plumbum
+  See https://fedoraproject.org/wiki/FinalizingFedoraSwitchtoPython3
+
 * Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.6.0-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
 
