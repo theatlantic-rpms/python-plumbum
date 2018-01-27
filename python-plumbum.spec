@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.6.0
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        Shell combinators library
 
 License:        MIT
@@ -11,7 +11,7 @@ URL:            https://github.com/tomerfiliba/plumbum
 Source0:        http://pypi.python.org/packages/source/p/plumbum/plumbum-%{version}.tar.gz
 
 BuildArch:      noarch
-BuildRequires:  python-devel
+BuildRequires:  python2-devel
 
 %if 0%{?with_python3}
 BuildRequires:  python3-devel
@@ -30,7 +30,7 @@ pythonic and cross-platform.
 
 %package -n python2-%{pypi_name}
 Summary: %summary
-Requires:       python-six
+Requires:       python2-six
 %{?python_provide:%python_provide python2-%{pypi_name}}
 
 %description -n python2-%{pypi_name} %_description
@@ -91,6 +91,10 @@ popd
 
 
 %changelog
+* Sat Jan 27 2018 Iryna Shcherbina <ishcherb@redhat.com> - 1.6.0-8
+- Update Python 2 dependency declarations to new packaging standards
+  (See https://fedoraproject.org/wiki/FinalizingFedoraSwitchtoPython3)
+
 * Sat Aug 19 2017 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 1.6.0-7
 - Python 2 binary package renamed to python2-plumbum
   See https://fedoraproject.org/wiki/FinalizingFedoraSwitchtoPython3
